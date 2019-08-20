@@ -1,11 +1,45 @@
 <form>
         <p>
-		<label class="control-label">{{ _('URL') }}</label>
+		<label class="control-label">Stream 1 (Leave this stream blank to use default webcam stream)</label>
         <div class="controls">
-            <input type="text" class="input-block-level" id="webcamsbSRC" data-bind="value: settings.plugins.webcamSB.url">
+            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url">
         </div>
+		<label class="control-label">Stream 2</label>
+        <div class="controls">
+            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url1">
+        </div>
+		<label class="control-label">Stream 3</label>
+        <div class="controls">
+            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url2">
+        </div>
+		<label class="control-label">Stream 4</label>
+        <div class="controls">
+            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url3">
+        </div>		
 		</p>
 		<p>
-		Don't forget to press "SAVE" when changing the stream URL and to refresh your browser.
+		<div>
+		<div class="wcsb_moreS">
+		<div>Allow to expand on click</div>
+		<select data-bind="value: settings.plugins.webcamSB.expand">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</select>
+		</div>
+		<div class="wcsb_moreS">
+		<div>Default Stream</div>
+		<select data-bind="value: settings.plugins.webcamSB.defaultCam">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+		</div>
+		<div class="wcsb_moreS">
+		</div>
+		</div>
+		</p>
+		<p>
+		Don't forget to press "SAVE" when changing the stream URL and to refresh your browser with CTRL+F5.
 		</p>
 </form>

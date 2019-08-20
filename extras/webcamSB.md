@@ -3,12 +3,12 @@ layout: plugin
 
 id: webcamSB
 title: OctoPrint-Webcamsb
-description: TODO
+description: Sidebar webcam viewer
 author: Luis Magar Brunner
 license: AGPLv3
 
 # TODO
-date: today's date in format YYYY-MM-DD, e.g. 2015-04-21
+date: 2019-08-17
 
 homepage: https://github.com/quanticchaos/OctoPrint-Webcamsb
 source: https://github.com/quanticchaos/OctoPrint-Webcamsb
@@ -21,24 +21,21 @@ archive: https://github.com/quanticchaos/OctoPrint-Webcamsb/archive/master.zip
 
 # TODO
 tags:
-- a list
-- of tags
-- that apply
-- to your plugin
-- (take a look at the existing plugins for what makes sense here)
+- webcam
+- sidebar
+- stream
 
 # TODO
 screenshots:
-- url: url of a screenshot, /assets/img/...
-  alt: alt-text of a screenshot
-  caption: caption of a screenshot
-- url: url of another screenshot, /assets/img/...
-  alt: alt-text of another screenshot
-  caption: caption of another screenshot
-- ...
+- url: /assets/img/screen1.png
+  alt: Screenshot control
+  caption: Screenchot with terminal
+- url: /assets/img/screen2.png
+  alt: Screenshot settings
+  caption: Screenshot of settings
 
 # TODO
-featuredimage: url of a featured image for your plugin, /assets/img/...
+featuredimage: /assets/img/featured.png
 
 # TODO
 # You only need the following if your plugin requires specific OctoPrint versions or
