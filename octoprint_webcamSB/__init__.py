@@ -64,6 +64,10 @@ __plugin_name__ = "Sidebar Webcam"
 
 
 def __plugin_load__():
+	# Change suggested by jneilliii
+	# global __plugin_settings_overlay__
+	#__plugin_settings_overlay__ = dict(appearance=dict(components=dict(order=dict(sidebar=["plugin_webcamSB"]))))
+	#
 	global __plugin_implementation__
 	__plugin_implementation__ = WebcamSBPlugin()
 	global __plugin_hooks__

@@ -8,6 +8,7 @@ $(function() {
     function WebcamSBViewModel(parameters) {
         var self = this;
 		self.settings = parameters[0];		
+		self.expanded_cam = ko.observable(false); //Change suggested by jneilliii
 		self.onBeforeBinding = function() {
 			$('#webcamsb').html('<img id="sidewebcam" src="" data-bind="click: wcsbPOC">');
 			var u = [self.settings.settings.plugins.webcamSB.url(),self.settings.settings.plugins.webcamSB.url1(),self.settings.settings.plugins.webcamSB.url2(),self.settings.settings.plugins.webcamSB.url3()];
@@ -71,18 +72,21 @@ $(function() {
 			var pos = 'relative';
 			var tamh = 'auto';
 			if (self.settings.settings.plugins.webcamSB.expand() == 1) {
-				if ($('#sidewebcam').width() > 300) { 
+				if (self.expanded_cam()) { 
 					tamw = '100%'; tamh = 'auto'; pos = 'relative'; posl= 0; post = 0;
 					$('#wcsb_bk').remove();
+					self.expanded_cam(false);
 				} else { 
 					tamw = 'auto'; tamh = ($(window).height()-20)+'px'; pos = 'fixed'; posl = 0; post = 10;
 					$('#webcamsb').append('<div id="wcsb_bk"></div>');
 					$('#wcsb_bk').css({"display":"block","position":"fixed","background-color":"#000","left":0,"top":0,"width":"100%","height":"100%","z-index":9});
-					$('#wcsb_bk').fadeTo("fast", 0.50);				
+					$('#wcsb_bk').fadeTo("fast", 0.50);	
+					self.expanded_cam(true);
+					//self.expanded = 1;
 				}
 				$('#webcamsb').css({"position":"relative"});
 				$('#sidewebcam').css({"display":"block","position":pos,"z-index":10,"width":tamw,"height":tamh,"left":posl,"top":post});
-				if ($('#sidewebcam').width() > 300) {
+				if (self.expanded_cam()) {
 					posl=(($(window).width()-$('#sidewebcam').width())/2);
 					$('#sidewebcam').css("left",posl);
 				}
