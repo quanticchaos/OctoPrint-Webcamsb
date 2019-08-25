@@ -12,7 +12,7 @@ Please reload your server after installing it. If you have any problerms after r
 
 ## Notes
 
-- As OutsourcedGuru pointed out on Octoprint's forum, depending on what you are using as an Octoprint server, you should be aware that you might not be able to use 4 USB streams without performance issues so, if you want to use more than one stream, the use of IP cameras or an external USB stream is recommended (You can attach multiple webcams to another RPI and stream them with ffmpeg, for example).  
+- As OutsourcedGuru pointed out on Octoprint's forum, depending on what you are using as an Octoprint server, you should be aware that you might not be able to use 4 USB streams without getting performance issues so, if you want to use more than one stream, the use of IP cameras or an external USB stream is recommended (You can attach multiple webcams to another RPI and stream them with ffmpeg, for example).  
 
 ## Setup
 

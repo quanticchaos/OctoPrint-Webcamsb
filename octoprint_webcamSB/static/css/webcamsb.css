@@ -1,3 +1,3 @@
 #webcamsb { width:100%; height:100%; margin:0px; padding:0px; }
-#webcsb_botones { padding-bottom: 5px; } #webcsb_botones button { margin-right:7px; padding: 5px; padding-bottom:0; padding-top:0; }
+#webcsb_botones { padding-top: 5px; text-align:right; } #webcsb_botones button { margin-right:7px; padding: 5px; padding-bottom:0; padding-top:0; }
 .wcsb_moreS { display:inline-block; margin-right:30px; } .wcsb_moreS div { display:block; }
