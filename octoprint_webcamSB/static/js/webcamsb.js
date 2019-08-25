@@ -38,7 +38,7 @@ $(function() {
 				x--;
 			}
 		};
-		self.wcsb_cargaCam = function(cual,x) {
+		self.wcsb_cargaCam = function(cual) {
 			var str = self.streams[cual];
 			var lacam = $("#sidewebcam"); 
 			str += "?" + new Date().getTime();
