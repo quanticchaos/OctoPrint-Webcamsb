@@ -20,7 +20,7 @@ class WebcamSBPlugin(octoprint.plugin.StartupPlugin,
 		pass
 
 	def get_settings_defaults(self):		
-		return dict(url="",url1="",url2="",url3="",expand=1,defaultCam=1)
+		return dict(url="",url1="",url2="",url3="",expand=1,defaultCam=1,f1x="0",f1z="0",f2x="0",f2z="0")
 
 	def get_assets(self):
 		return dict(

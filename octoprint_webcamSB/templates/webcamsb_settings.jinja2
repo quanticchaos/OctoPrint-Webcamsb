@@ -1,45 +1,65 @@
 <form>
-        <p>
-		<label class="control-label">Stream 1 (Leave this stream blank to use default webcam stream)</label>
-        <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url">
-        </div>
-		<label class="control-label">Stream 2</label>
-        <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url1">
-        </div>
-		<label class="control-label">Stream 3</label>
-        <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url2">
-        </div>
-		<label class="control-label">Stream 4</label>
-        <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.webcamSB.url3">
-        </div>		
-		</p>
 		<p>
-		<div>
-		<div class="wcsb_moreS">
-		<div>Allow to expand on click</div>
-		<select data-bind="value: settings.plugins.webcamSB.expand">
-			<option value="1">YES</option>
-			<option value="0">NO</option>
-		</select>
-		</div>
-		<div class="wcsb_moreS">
-		<div>Default Stream</div>
-		<select data-bind="value: settings.plugins.webcamSB.defaultCam">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-		</select>
-		</div>
-		<div class="wcsb_moreS">
-		</div>
-		</div>
+			<label class="control-label">Stream 1 (Leave this stream blank to use default webcam stream)</label>
+			<div class="controls">
+				<input type="text" class="input-block-level wcsb_m" data-bind="value: settings.plugins.webcamSB.url">
+				<div class="wcsb_moreS">
+					<div>Flip Horizontally</br>
+						<select data-bind="value: settings.plugins.webcamSB.f1x"/>
+							<option value="0">NO</option>
+							<option value="1">YES</option>
+						</select>
+					</div>
+					<div>Flip Vertically</br>
+						<select data-bind="value: settings.plugins.webcamSB.f1z"/>
+							<option value="0">NO</option>
+							<option value="1">YES</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<label class="control-label">Stream 2</label>
+			<div class="controls">
+				<input type="text" class="input-block-level wcsb_m" data-bind="value: settings.plugins.webcamSB.url1">
+				<div class="wcsb_moreS">
+					<div>Flip Horizontally</br>
+						<select data-bind="value: settings.plugins.webcamSB.f2x"/>
+							<option value="0">NO</option>
+							<option value="1">YES</option>
+						</select>
+					</div>
+					<div>Flip Vertically</br>
+						<select data-bind="value: settings.plugins.webcamSB.f2z"/>
+							<option value="0">NO</option>
+							<option value="1">YES</option>
+						</select>
+					</div>
+				</div>				
+			</div>
+			<label class="control-label">Stream 3</label>
+			<div class="controls">
+				<input type="text" class="input-block-level wcsb_m" data-bind="value: settings.plugins.webcamSB.url2">
+			</div>
+			<label class="control-label">Stream 4</label>
+			<div class="controls">
+				<input type="text" class="input-block-level wcsb_m" data-bind="value: settings.plugins.webcamSB.url3">
+			</div>
 		</p>
-		<p>
-		Don't forget to press "SAVE" when changing the stream URL and to refresh your browser with CTRL+F5.
-		</p>
+		<div class="wcsb_moreS">
+			<div>Allow to expand on click</br>
+				<select data-bind="value: settings.plugins.webcamSB.expand">
+					<option value="1">YES</option>
+					<option value="0">NO</option>
+				</select>
+			</div>
+			<div>Default Stream</br>
+				<select data-bind="value: settings.plugins.webcamSB.defaultCam">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+			</div>
+		</div>
+		Please "SAVE" and refresh your browser with CTRL+F5 after changing your settings.
 </form>

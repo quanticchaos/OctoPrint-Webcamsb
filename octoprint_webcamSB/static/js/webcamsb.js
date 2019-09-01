@@ -10,7 +10,9 @@ $(function() {
 		self.settings = parameters[0];	
 		self.expanded_cam = 0; //Change suggested by jneilliii
 		self.onBeforeBinding = function() {	
-			self.streams = [self.settings.settings.plugins.webcamSB.url(),self.settings.settings.plugins.webcamSB.url1(),self.settings.settings.plugins.webcamSB.url2(),self.settings.settings.plugins.webcamSB.url3()];		
+			var st = self.settings.settings.plugins.webcamSB;
+			self.streams = [st.url(),st.url1(),st.url2(),st.url3()];
+			self.flips = [st.f1x(),st.f1z(),st.f2x(),st.f2z()];
 			var num_cams = 0;
 			var def_cam = self.settings.settings.plugins.webcamSB.defaultCam();
 			if (self.streams[0] == "") self.streams[0] = $('#settings-webcamStreamUrl').val();
@@ -43,6 +45,13 @@ $(function() {
 			var lacam = $("#sidewebcam"); 
 			str += "?" + new Date().getTime();
 			lacam.attr("src", str);	
+			var fx = 1; var fy = 1; var x = 0;
+			if (cual <= 1) {
+				if (cual == 1) x = 2;
+				if (self.flips[x+0] == 1) fx = -1;
+				if (self.flips[x+1] == 1) fy = -1; 
+			};
+			$('#sidewebcam').css({"transform":"scale("+fx+","+fy+")"});
 		}
 		self.wcsbPOC = function() {
 			var posl = 0; var post = 0;
@@ -70,7 +79,7 @@ $(function() {
 			}
 		}
 		self.onAfterBinding = function() {
-			$('#sidebar_plugin_webcamSB_wrapper .accordion-heading a').prepend('<i class="fa icon-black fa-camera"/>');		
+			$('#sidebar_plugin_webcamSB_wrapper .accordion-heading a').prepend('<i class="fa icon-black fa-camera"/>');	
         };			
     };
     OCTOPRINT_VIEWMODELS.push({
