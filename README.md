@@ -7,6 +7,7 @@ Please reload your server after installing it. If you have any problerms after r
 
 ## Changes
 
+- 0.1.4 - Added rotate and rename streams as requested by some users. 
 - 0.1.3 - Added flip image by request of the_real_orca.
 - 0.1.2 - Small changes in CSS, Templates and Javascript.
 - 0.1.1 - Special thanks to jneilliii for helping pointing issues and suggesting fixes. Implementation of some of his suggestions to avoid conflicts with his great Widescreen plugin.
