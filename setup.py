@@ -1,7 +1,7 @@
 plugin_identifier = "webcamSB"
 plugin_package = "octoprint_webcamSB"
 plugin_name = "Sidebar Webcam"
-plugin_version = "0.1.4"
+plugin_version = "0.1.5"
 plugin_description = """Sidebar webcam stream viewer"""
 plugin_author = "Luis Magar Brunner in collaboration with jneilliii"
 plugin_author_email = "luis@magar.mx"
