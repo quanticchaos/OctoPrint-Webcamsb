@@ -10,7 +10,7 @@ Please reload your server after installing it. If you have any problerms after r
 - 0.1.6 - Fixed 3AM version information error (forgot to update it in previous release, sorry).
 - 0.1.5 - Fixed fullscreen image resizing error when resizing browser reported by offroadguy56.
 - 0.1.4 - Added rotate image requested by the community.
--       - Added the possibility to rename streams as requested by offroadguy56.
+-         Added the possibility to rename streams as requested by offroadguy56.
 - 0.1.3 - Added flip image by request of the_real_orca.
 - 0.1.2 - Small changes in CSS, Templates and Javascript.
 - 0.1.1 - Special thanks to jneilliii for helping pointing issues and suggesting fixes. Implementation of some of his suggestions to avoid conflicts with his great Widescreen plugin.
