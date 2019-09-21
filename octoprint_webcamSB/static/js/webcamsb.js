@@ -79,32 +79,23 @@ $(function() {
 			$("#wcsb_imc").css({"height":imc_w});
 		}
 		self.wcsbPOC = function() {
-			var posl = 0; var post = 0;
-			var tamw = '100%';
-			var pos = 'relative';
-			var tamh = 'auto';
+			var tamh = 'auto'; var tamw = '100%';
 			if (self.settings.settings.plugins.webcamSB.expand() == 1) {
 				if (self.expanded_cam > 0) { 
-					tamw = window.localStorage.getItem('wcsb_im_w'); tamh = window.localStorage.getItem('wcsb_im_h'); pos = 'relative'; posl= 0; post = 0;
+					tamw = window.localStorage.getItem('wcsb_im_w'); tamh = window.localStorage.getItem('wcsb_im_h'); 
 					$('#wcsb_bk').remove();
+					$('#wcsb_imc').css({"position":"relative","top":0,"left":0,"width":"100%","height":"100%"});
+					$('#wcsb_imc').css({"height":tamw});
 					self.expanded_cam = 0;
 				} else {
-					
-					tamw = 'auto'; tamh = ($(window).height()-20)+'px'; pos = 'fixed'; posl = 0; post = 10;
+					tamw = 'auto'; tamh = '100%'; 
 					var esrot = window.localStorage.getItem('wcsb_im_rot');
-					$('#wcsb_imc').append('<div id="wcsb_bk"></div>');
-					$('#wcsb_imc').css({"height":$(window).height()+'px'});
-					$('#wcsb_bk').css({"display":"block","position":"fixed","background-color":"#000","left":0,"top":0,"width":"100%","height":"100%","z-index":9});
-					$('#wcsb_bk').fadeTo("fast", 0.50);	
+					$('#webcamsb').append('<div id="wcsb_bk"></div>');
+					$('#wcsb_bk').css({"opacity":0.7,"position":"fixed","background-color":"#000","left":0,"top":0,"width":"100%","height":"100%","z-index":9});
+					$('#wcsb_imc').css({"position":"fixed","top":0,"left":0,"width":"100%","height":"100%","z-index":10});
 					self.expanded_cam = 1;
 				}
-				$('#wcsb_imc').css({"position":"relative"});
-				$('#sidewebcam').css({"display":"block","position":pos,"z-index":10,"width":tamw,"height":tamh,"left":posl,"top":post});
-				if (self.expanded_cam > 0) {
-					posl=(($(window).width()-$('#sidewebcam').width())/2);
-					$('#sidewebcam').css("left",posl);
-				}
-				$('#wcsb_imc').css({"height":tamw});
+				$('#sidewebcam').css({"width":tamw,"height":tamh,"opacity":1});
 			}
 		}
 		self.onAfterBinding = function() {

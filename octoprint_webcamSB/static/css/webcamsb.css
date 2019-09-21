@@ -1,4 +1,5 @@
-#wcsb_t { margin:0; padding:0; width:100%; } #wcsb_imc { text-align:center; } 
-#sidewebcam {  width:auto; } .wcsb_n { width:15%; } .wcsb_u { width:80%; } .wbsc_s { width: auto; } 
+#wcsb_t { margin:0; padding:0; width:100%; } #wcsb_imc { text-align:center; vertical-align: middle; object-fit:contain;} 
+#sidewebcam {  width:auto; object-fit:contain; } 
+.wcsb_n { width:15%; } .wcsb_u { width:80%; } .wbsc_s { width: auto; } 
 #webcsb_botones { padding: 5px; padding-bottom:0; text-align:right; width:100%; } #webcsb_botones button { margin-right:5px; padding: 5px; padding-bottom:0; padding-top:0; }
 .wcsb_moreS { display:block; margin-left:10px;  } .wcsb_moreS div { display:inline-block; margin-right:10px; width:20%; }
