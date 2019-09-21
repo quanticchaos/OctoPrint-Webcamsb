@@ -8,7 +8,7 @@ $(function() {
     function WebcamSBViewModel(parameters) {
 		var self = this;
 		self.settings = parameters[0];	
-		self.expanded_cam = 0; //Change suggested by jneilliii
+		self.expanded_cam = 0; //Change suggested by jneilliii to avoid conflicts with his widescreen plugin
 		self.onBeforeBinding = function() {	
 			var st = self.settings.settings.plugins.webcamSB;
 			self.streams = [st.url(),st.url1(),st.url2(),st.url3()];
@@ -29,7 +29,7 @@ $(function() {
 			}
 			for (var x=0; x<=3; x++) {
 				if (self.streams[x] != "") {
-					if (self.selector == 1) { $(botones).append('<button class="btn" data-bind="click: wcsb_cargaCam.bind($data, '+x+')">'+self.names[x]+'</button>'); } else {
+					if (self.selector == 1) { $(botones).append('<button class="btn" id="wcsb_bt_'+x+'" data-bind="click: wcsb_cargaCam.bind($data, '+x+')">'+self.names[x]+'</button>'); } else {
 						$(selector).append('<option value='+x+'>'+self.names[x]+'</option>');
 					}
 					num_cams++;
@@ -52,6 +52,8 @@ $(function() {
 			}
 		};
 		self.wcsb_cargaCam = function(cual) {
+			for(var x = 0; x <= 3; x++) $("#wcsb_bt_"+x+"").removeClass("btn-primary");
+			$("#wcsb_bt_"+cual+"").addClass("btn-primary");
 			var str = self.streams[cual];
 			var lacam = $("#sidewebcam");
 			str += "?" + new Date().getTime();
