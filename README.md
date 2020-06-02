@@ -5,6 +5,7 @@ The plugin will try to automatically set itself on top of the sidebar (see notes
 
 ## Changes
 
+- 0.1.8 - Added Python 3 compatibility by jneilliii.
 - 0.1.7 - Added highlight color to selected stream button. 
 - 0.1.6 - Fixed 3AM version information error (forgot to update it in previous release, sorry).
 - 0.1.5 - Fixed fullscreen image resizing error when resizing browser reported by offroadguy56.
