@@ -9,3 +9,4 @@ dist
 *.zip
 *.beta
 *.orig
+venv

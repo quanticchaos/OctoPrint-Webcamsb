@@ -7,15 +7,16 @@
 $(function() {
     function WebcamSBViewModel(parameters) {
 		var self = this;
-		self.settings = parameters[0];	
+		self.settings = parameters[0];
 		self.expanded_cam = 0; //Change suggested by jneilliii to avoid conflicts with his widescreen plugin
-		self.onBeforeBinding = function() {	
+		self.onBeforeBinding = function() {
 			var st = self.settings.settings.plugins.webcamSB;
 			self.streams = [st.url(),st.url1(),st.url2(),st.url3()];
 			self.names = [st.name(),st.name1(),st.name2(),st.name3()];
 			self.flips = [st.f1x(),st.f1z(),st.f2x(),st.f2z()];
 			self.rotates = [st.rot1(),st.rot2()];
 			self.aspect = [st.asp1(),st.asp2()];
+			self.includeTimeStamps = [st.its1(),st.its2()];
 			self.selector = st.selector();
 			var num_cams = 0;
 			var def_cam = self.settings.settings.plugins.webcamSB.defaultCam();
@@ -34,8 +35,8 @@ $(function() {
 					}
 					num_cams++;
 				}
-			}	
-			
+			}
+
 			if (num_cams > 1) $('#wcsb_bot').append(botones);
 			if (num_cams == 0) {
 				$('#webcamsb').html("<p style='font-size:0.9em;text-align:center'>Stream not set</p>"); return;
@@ -43,7 +44,7 @@ $(function() {
 			var x = 3;
 			while (x >= 0) {
 				if (def_cam == x+1 && self.streams[x] == "") {
-					def_cam--; x--; continue; 
+					def_cam--; x--; continue;
 				} else {
 					self.wcsb_cargaCam(def_cam-1);
 					break;
@@ -56,13 +57,18 @@ $(function() {
 			$("#wcsb_bt_"+cual+"").addClass("btn-primary");
 			var str = self.streams[cual];
 			var lacam = $("#sidewebcam");
-			str += "?" + new Date().getTime();
-			lacam.attr("src", str);	
-			var fx = 1; var fy = 1; var x = 0; 
+			let currentTime = new Date().getTime();
+			let includeTimeStamp = self.includeTimeStamps[cual];
+			if (includeTimeStamp == undefined || includeTimeStamp === 1) {
+			    str += "?" + currentTime;
+            }
+
+			lacam.attr("src", str);
+			var fx = 1; var fy = 1; var x = 0;
 			if (cual <= 1) {
 				if (cual == 1) x = 2;
 				if (self.flips[x+0] == 1) fx = -1;
-				if (self.flips[x+1] == 1) fy = -1; 
+				if (self.flips[x+1] == 1) fy = -1;
 			};
 			var rotation = 0;
  			if (self.rotates[cual] != undefined) rotation = self.rotates[cual];
@@ -71,9 +77,9 @@ $(function() {
 			if (rotation != 0) {
 				imc_w = max_h+"px";
 				if (self.aspect[cual] == 2) imc_h = Math.floor(max_h*(3/4))+"px";
-				if (self.aspect[cual] == 1) imc_h = Math.floor(max_h*(9/16))+"px";	
+				if (self.aspect[cual] == 1) imc_h = Math.floor(max_h*(9/16))+"px";
 				is_rot = self.aspect[cual];
-			} 
+			}
 			window.localStorage.setItem('wcsb_im_h', imc_h);
 			window.localStorage.setItem('wcsb_im_w', imc_w);
 			window.localStorage.setItem('wcsb_im_rot', is_rot);
@@ -83,14 +89,14 @@ $(function() {
 		self.wcsbPOC = function() {
 			var tamh = 'auto'; var tamw = '100%';
 			if (self.settings.settings.plugins.webcamSB.expand() == 1) {
-				if (self.expanded_cam > 0) { 
-					tamw = window.localStorage.getItem('wcsb_im_w'); tamh = window.localStorage.getItem('wcsb_im_h'); 
+				if (self.expanded_cam > 0) {
+					tamw = window.localStorage.getItem('wcsb_im_w'); tamh = window.localStorage.getItem('wcsb_im_h');
 					$('#wcsb_bk').remove();
 					$('#wcsb_imc').css({"position":"relative","top":0,"left":0,"width":"100%","height":"100%"});
 					$('#wcsb_imc').css({"height":tamw});
 					self.expanded_cam = 0;
 				} else {
-					tamw = 'auto'; tamh = '100%'; 
+					tamw = 'auto'; tamh = '100%';
 					var esrot = window.localStorage.getItem('wcsb_im_rot');
 					$('#webcamsb').append('<div id="wcsb_bk"></div>');
 					$('#wcsb_bk').css({"opacity":0.7,"position":"fixed","background-color":"#000","left":0,"top":0,"width":"100%","height":"100%","z-index":9});
@@ -101,8 +107,8 @@ $(function() {
 			}
 		}
 		self.onAfterBinding = function() {
-			$('#sidebar_plugin_webcamSB_wrapper .accordion-heading a').prepend('<i class="fa icon-black fa-camera"/>');	
-        };			
+			$('#sidebar_plugin_webcamSB_wrapper .accordion-heading a').prepend('<i class="fa icon-black fa-camera"/>');
+        };
     };
     OCTOPRINT_VIEWMODELS.push({
         construct: WebcamSBViewModel,
